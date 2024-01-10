@@ -15,14 +15,19 @@ def create_mpv_command(directory, fps, audio_file=None):
 
     return command
 
+
 def detect_image_extension(directory):
-    # Implement logic to detect the image extension, e.g., check the first file in the directory
-    # For simplicity, assuming all files in the directory have the same extension
+    # Implement logic to detect the image extension, e.g., check the first image file in the directory
+    image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
     files = os.listdir(directory)
-    if files:
-        first_file = files[0]
-        _, extension = os.path.splitext(first_file)
-        return extension[1:]  # Remove the leading dot from the extension
+
+    for file in files:
+        _, extension = os.path.splitext(file)
+        if extension.lower() in image_extensions:
+            return extension[1:]
+
+    raise ValueError("No image files found in the specified directory")
+
 
 def main():
     if len(sys.argv) < 3:
