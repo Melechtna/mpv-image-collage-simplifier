@@ -18,7 +18,7 @@ def create_mpv_command(directory, fps, audio_file=None):
 
 def detect_image_extension(directory):
     # Implement logic to detect the image extension, e.g., check the first image file in the directory
-    image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
+    image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tga']
     files = os.listdir(directory)
 
     for file in files:
